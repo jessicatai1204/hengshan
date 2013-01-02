@@ -39,4 +39,5 @@ class ActivitiesController < ApplicationController
     end
   end
 
+
 end
