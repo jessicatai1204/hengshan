@@ -1,0 +1,13 @@
+%h2 Create New Message
+     
+-#= form_tag travelmap_path, :method => :post do
+     
+  = label :message, :name, 'Name'
+  = text_field :message, :name
+
+  = label :message, :content, 'Content'
+  = text_field :message, :content
+     
+
+     
+  = submit_tag 'Save Changes'

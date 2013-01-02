@@ -1,0 +1,142 @@
+
+
+Started GET "/movies/" for 127.0.0.1 at 2013-01-02 08:59:20 -0800
+
+ActionController::RoutingError (No route matches [GET] "/movies"):
+  
+
+Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.1.0/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (2.0ms)
+
+
+Started GET "/activities" for 127.0.0.1 at 2013-01-02 08:59:27 -0800
+  Processing by ActivitiesController#index as HTML
+Completed 500 Internal Server Error in 1ms
+
+ActiveRecord::StatementInvalid (Could not find table 'activities'):
+  app/controllers/activities_controller.rb:3:in `index'
+
+Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.1.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.3ms)
+Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.1.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.0ms)
+Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.1.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (12.9ms)
+  [1m[36m (0.1ms)[0m  [1mselect sqlite_version(*)[0m
+  [1m[35m (63.8ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) 
+  [1m[36m (0.1ms)[0m  [1mPRAGMA index_list("schema_migrations")[0m
+  [1m[35m (20.9ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36m (0.4ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Migrating to CreateMessage (20121216144317)
+  [1m[35m (1.2ms)[0m  CREATE TABLE "message" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "content" text, "release_date" datetime, "created_at" datetime, "updated_at" datetime) 
+  [1m[36m (1.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20121216144317')[0m
+Migrating to CreateActivities (20130102122053)
+  [1m[35m (1.1ms)[0m  CREATE TABLE "activities" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar(255), "description" text, "release_date" datetime, "created_at" datetime, "updated_at" datetime) 
+  [1m[36m (0.5ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20130102122053')[0m
+  [1m[35m (0.9ms)[0m  select sqlite_version(*)
+  [1m[36m (5.3ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+  [1m[35m (0.1ms)[0m  PRAGMA index_list("activities")
+  [1m[36m (0.1ms)[0m  [1mPRAGMA index_list("message")[0m
+  [1m[36m (0.9ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+  [1m[35mSQL (71.1ms)[0m  INSERT INTO "activities" ("created_at", "description", "release_date", "title", "updated_at") VALUES (?, ?, ?, ?, ?)  [["created_at", Wed, 02 Jan 2013 17:00:48 UTC +00:00], ["description", "lesson1"], ["release_date", Sun, 25 Nov 2012 00:00:00 UTC +00:00], ["title", "cooking room"], ["updated_at", Wed, 02 Jan 2013 17:00:48 UTC +00:00]]
+  [1m[36mSQL (2.3ms)[0m  [1mINSERT INTO "activities" ("created_at", "description", "release_date", "title", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["created_at", Wed, 02 Jan 2013 17:00:48 UTC +00:00], ["description", "lesson2"], ["release_date", Sat, 21 Jul 2012 00:00:00 UTC +00:00], ["title", "cooking room"], ["updated_at", Wed, 02 Jan 2013 17:00:48 UTC +00:00]]
+  [1m[35mSQL (1.1ms)[0m  INSERT INTO "activities" ("created_at", "description", "release_date", "title", "updated_at") VALUES (?, ?, ?, ?, ?)  [["created_at", Wed, 02 Jan 2013 17:00:48 UTC +00:00], ["description", "lesson1"], ["release_date", Fri, 10 Aug 2012 00:00:00 UTC +00:00], ["title", "japanese song"], ["updated_at", Wed, 02 Jan 2013 17:00:48 UTC +00:00]]
+  [1m[36mSQL (1.1ms)[0m  [1mINSERT INTO "activities" ("created_at", "description", "release_date", "title", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["created_at", Wed, 02 Jan 2013 17:00:48 UTC +00:00], ["description", "lesson2"], ["release_date", Tue, 12 Jun 2012 00:00:00 UTC +00:00], ["title", "japanese song"], ["updated_at", Wed, 02 Jan 2013 17:00:48 UTC +00:00]]
+
+
+Started GET "/activities" for 127.0.0.1 at 2013-01-02 09:02:07 -0800
+  Processing by ActivitiesController#index as HTML
+  [1m[36mActivity Load (0.6ms)[0m  [1mSELECT "activities".* FROM "activities" [0m
+Rendered activities/index.erb within layouts/application (30.7ms)
+Completed 500 Internal Server Error in 259ms
+
+ActionView::Template::Error (No route matches {:action=>"edit", :controller=>"activities", :id=>[#<Activity id: 1, title: "cooking room", description: "lesson1", release_date: "2012-11-25 00:00:00", created_at: "2013-01-02 17:00:48", updated_at: "2013-01-02 17:00:48">, #<Activity id: 2, title: "cooking room", description: "lesson2", release_date: "2012-07-21 00:00:00", created_at: "2013-01-02 17:00:48", updated_at: "2013-01-02 17:00:48">, #<Activity id: 3, title: "japanese song", description: "lesson1", release_date: "2012-08-10 00:00:00", created_at: "2013-01-02 17:00:48", updated_at: "2013-01-02 17:00:48">, #<Activity id: 4, title: "japanese song", description: "lesson2", release_date: "2012-06-12 00:00:00", created_at: "2013-01-02 17:00:48", updated_at: "2013-01-02 17:00:48">]}):
+    25:                                 <td><%= activity.title%></td>
+    26: 				<td><%= activity.description%></td>
+    27:                                 <td><%= activity.release_date%></td>
+    28:                                 <td><%=link_to '修改', edit_activity_path(@activity)%></td>
+    29: <!--                               <td><%=link_to '刪除', activities_path(@activity), :method => :delete%></td>      -->
+    30:                         </tr>	
+    31: 		<% end-%>
+  app/views/activities/index.erb:28:in `block in _app_views_activities_index_erb__236569544__614134258'
+  app/views/activities/index.erb:23:in `each'
+  app/views/activities/index.erb:23:in `_app_views_activities_index_erb__236569544__614134258'
+
+Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.1.0/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.7ms)
+
+
+Started GET "/activities" for 127.0.0.1 at 2013-01-02 09:05:33 -0800
+  Processing by ActivitiesController#index as HTML
+  [1m[35mActivity Load (0.5ms)[0m  SELECT "activities".* FROM "activities" 
+Rendered activities/index.erb within layouts/application (28.1ms)
+Compiled application.css  (1ms)  (pid 19380)
+Compiled application.js  (37ms)  (pid 19380)
+Compiled jquery.js  (44ms)  (pid 19380)
+Compiled jquery_ujs.js  (1ms)  (pid 19380)
+Completed 200 OK in 375ms (Views: 367.1ms | ActiveRecord: 3.1ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-01-02 09:05:34 -0800
+Served asset /application.css - 200 OK (50ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-01-02 09:05:34 -0800
+Served asset /jquery_ujs.js - 304 Not Modified (73ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-01-02 09:05:34 -0800
+Served asset /jquery.js - 200 OK (217ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-01-02 09:05:35 -0800
+Served asset /application.js - 200 OK (91ms)
+
+
+Started GET "/activities/new" for 127.0.0.1 at 2013-01-02 09:05:53 -0800
+  Processing by ActivitiesController#new as HTML
+Rendered activities/new.erb within layouts/application (13.8ms)
+Completed 200 OK in 64ms (Views: 63.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-01-02 09:05:53 -0800
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-01-02 09:05:53 -0800
+Served asset /jquery.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-01-02 09:05:53 -0800
+Served asset /jquery_ujs.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-01-02 09:05:53 -0800
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started POST "/activities" for 127.0.0.1 at 2013-01-02 09:05:56 -0800
+  Processing by ActivitiesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ElXweqg/rfsTxj2VNlRz+NZUs+SZ3iKCRLfI+NMJPug=", "activity"=>{"title"=>"", "description"=>"", "release_date(1i)"=>"2013", "release_date(2i)"=>"1", "release_date(3i)"=>"2", "release_date(4i)"=>"17", "release_date(5i)"=>"05"}, "commit"=>"確定"}
+  [1m[36mSQL (191.1ms)[0m  [1mINSERT INTO "activities" ("created_at", "description", "release_date", "title", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["created_at", Wed, 02 Jan 2013 17:05:57 UTC +00:00], ["description", ""], ["release_date", Wed, 02 Jan 2013 17:05:00 UTC +00:00], ["title", ""], ["updated_at", Wed, 02 Jan 2013 17:05:57 UTC +00:00]]
+Redirected to http://localhost:3000/activities?activities=index
+Completed 302 Found in 323ms
+
+
+Started GET "/activities?activities=index" for 127.0.0.1 at 2013-01-02 09:05:58 -0800
+  Processing by ActivitiesController#index as HTML
+  Parameters: {"activities"=>"index"}
+  [1m[35mActivity Load (0.6ms)[0m  SELECT "activities".* FROM "activities" 
+Rendered activities/index.erb within layouts/application (25.1ms)
+Completed 200 OK in 76ms (Views: 72.4ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-01-02 09:05:58 -0800
+Served asset /application.css - 304 Not Modified (15ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-01-02 09:05:58 -0800
+Served asset /jquery_ujs.js - 304 Not Modified (6ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-01-02 09:05:58 -0800
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-01-02 09:05:58 -0800
+Served asset /application.js - 304 Not Modified (11ms)

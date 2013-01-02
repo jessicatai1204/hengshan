@@ -1,0 +1,28 @@
+<html>
+<head>
+   <title>Hengshan Activity</title>
+</head>
+
+<body>
+<h1>橫山社區活動-新增</h1>
+<div id="new_activity">
+<%= form_tag '/activities', :method=>nil  do %>
+
+        <%= label :activity, :title, '活動主題'%>
+        <%= text_field :activity, :title%><br>
+
+	<%= label :activity, :description, '活動描述'%>
+        <%= text_field :activity, :description%><br>
+
+        <%= label :activity, :release_date, '活動時間'%>
+        <%= datetime_select :activity, :release_date%><br>
+
+	<div id="test">
+        <%= submit_tag '確定'%>
+	</div>
+
+<% end%>
+</div>
+
+</body>
+

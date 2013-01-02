@@ -1,0 +1,41 @@
+<html>
+<head>
+   <title>Hengshan Activity</title>
+</head>
+
+<body>
+
+<div id="list">
+<h1>
+橫山社區活動公告
+</h1>
+<table class="activities">
+	<thead>
+		<tr>
+			<th width=75px>活動主題</th>
+			<th>活動描述</th>
+			<th>活動時間</th>
+<!--                          <th>修改活動</th>
+                     <th>刪除活動</th>   -->
+		</tr>
+	</thead>
+	<tbody>
+		<% @activity.each do | activity | -%>
+                        <tr>
+                                <td><%= activity.title%></td>
+				<td><%= activity.description%></td>
+                                <td><%= activity.release_date%></td>
+                                <td><%=link_to '修改', edit_activity_path(@activity)%></td>
+<!--                               <td><%=link_to '刪除', activities_path(@activity), :method => :delete%></td>      -->
+                        </tr>	
+		<% end-%>
+	</tbody>
+</table>
+
+<div id="new_activity">
+<%=link_to "新增活動", new_activity_path%>
+</div>
+
+</body>
+</html>
+
